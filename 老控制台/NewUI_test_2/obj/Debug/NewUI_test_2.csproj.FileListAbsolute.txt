@@ -1,0 +1,61 @@
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\bin\Debug\NewUI_test_2.exe.config
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\bin\Debug\NewUI_test_2.exe
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\bin\Debug\NewUI_test_2.pdb
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.csprojResolveAssemblyReference.cache
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\MainWindow.baml
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\MainWindow.g.cs
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\App.g.cs
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2_MarkupCompile.cache
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.g.resources
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.Properties.Resources.resources
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.csproj.GenerateResource.Cache
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.exe
+G:\湖南卫视\通讯测试tcp_ip\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.pdb
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\bin\Debug\NewUI_test_2.exe.config
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.exe
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.pdb
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\bin\Debug\NewUI_test_2.exe
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\bin\Debug\NewUI_test_2.pdb
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.csprojResolveAssemblyReference.cache
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\MainWindow.baml
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\MainWindow.g.cs
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\App.g.cs
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2_MarkupCompile.cache
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.g.resources
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.Properties.Resources.resources
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.csproj.GenerateResource.Cache
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\bin\Debug\RB.ToolKit.dll
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\bin\Debug\RB.ToolKit.pdb
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2.Untiy.UnityControl.resources
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+G:\湖南卫视\NewUI_test_2\NewUI_test_2\obj\Debug\NewUI_test_2_MarkupCompile.lref
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\bin\Debug\NewUI_test_2.exe.config
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\NewUI_test_2.exe
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\NewUI_test_2.pdb
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\NewUI_test_2.csprojResolveAssemblyReference.cache
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\MainWindow.baml
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\MainWindow.g.cs
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\App.g.cs
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\NewUI_test_2_MarkupCompile.cache
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\NewUI_test_2.g.resources
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\NewUI_test_2.Properties.Resources.resources
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\obj\Debug\NewUI_test_2.csproj.GenerateResource.Cache
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\bin\Debug\NewUI_test_2.exe
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\bin\Debug\NewUI_test_2.pdb
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\bin\Debug\RB.ToolKit.dll
+G:\湖南卫视\NewUI_test_2 - 副本\NewUI_test_2\bin\Debug\RB.ToolKit.pdb
+G:\湖南卫视\控制台\NewUI_test_2\bin\Debug\NewUI_test_2.exe.config
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\NewUI_test_2.exe
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\NewUI_test_2.pdb
+G:\湖南卫视\控制台\NewUI_test_2\bin\Debug\NewUI_test_2.exe
+G:\湖南卫视\控制台\NewUI_test_2\bin\Debug\NewUI_test_2.pdb
+G:\湖南卫视\控制台\NewUI_test_2\bin\Debug\RB.ToolKit.dll
+G:\湖南卫视\控制台\NewUI_test_2\bin\Debug\RB.ToolKit.pdb
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\NewUI_test_2.csprojResolveAssemblyReference.cache
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\MainWindow.baml
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\MainWindow.g.cs
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\App.g.cs
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\NewUI_test_2_MarkupCompile.cache
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\NewUI_test_2.g.resources
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\NewUI_test_2.Properties.Resources.resources
+G:\湖南卫视\控制台\NewUI_test_2\obj\Debug\NewUI_test_2.csproj.GenerateResource.Cache

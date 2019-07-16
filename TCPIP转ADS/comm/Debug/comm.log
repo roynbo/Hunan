@@ -1,0 +1,3 @@
+﻿  main.cpp
+d:\hunantv_file\tcpip转ads\comm\main.cpp(139): warning C4101: “i”: 未引用的局部变量
+  comm.vcxproj -> D:\HunanTV_File\TCPIP转ADS\Debug\comm.exe

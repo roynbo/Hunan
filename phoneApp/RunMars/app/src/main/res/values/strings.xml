@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">挑战吧！太空</string>
+    <drawable name="clr_normal">#ff6501</drawable>
+    <drawable name="clr_pressed">#a44100</drawable>
+</resources>

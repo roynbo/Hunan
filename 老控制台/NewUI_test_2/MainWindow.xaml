@@ -1,0 +1,102 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:toolkit="clr-namespace:RB.ToolKit;assembly=RB.ToolKit"       
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="NewUI_test_2.MainWindow"     
+        xmlns:wf ="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        Title="机器人控制台" Height="350" Width="525" WindowState="Maximized">
+    <Viewbox Stretch=" fill" >
+        <Canvas  HorizontalAlignment="Left" VerticalAlignment="Stretch" Height=" 350" Width="525" >
+            <Canvas.Background>
+                <ImageBrush Stretch="Fill" ImageSource="skin/mainactivity_background.png"/>
+            </Canvas.Background>
+            <Grid Height=" 350" Width="525">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.4*"/>
+                    <RowDefinition  Height="0.6*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="139*"/>
+                        <ColumnDefinition Width="19*"/>
+                    </Grid.ColumnDefinitions>
+                    <WindowsFormsHost Margin="24,-25,-24.4,25.4" Grid.ColumnSpan="2"  >
+                        <wf:Panel x:Name="panel1" Margin="1,1,1,1" >
+                        </wf:Panel>
+                    </WindowsFormsHost>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.4*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
+                    </Grid.RowDefinitions>
+                    <toolkit:RBImageButton x:Name="btn_start" Grid.Column="1" Grid.Row="1"  ImagePath="/skin/btn_push_up_.png" ImageSize="80" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btn_start_Click" />
+                    <toolkit:RBImageButton x:Name="btn_halt" Grid.Column="3" Grid.Row="1" ImagePath="skin/btn_push_up_halt.png" ImageSize="80" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btn_halt_Click"/>
+                    <toolkit:RBImageButton x:Name="btn_reset" Grid.Column="5" Grid.Row="1" ImagePath="skin/btn_push_up_reset.png" ImageSize="80" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btn_reset_Click"/>
+                    
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="61*"/>
+                        <ColumnDefinition Width="114*"/>
+                        <ColumnDefinition Width="90*"/>
+                        <ColumnDefinition Width="102*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="状态消息提示" BorderBrush="Black" Grid.ColumnSpan="3" Margin="33,50,28.6,15">
+                        <TextBox Name="robotStatus"  BorderBrush="Black"/>
+                    </GroupBox>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="0.8*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.8*"/>
+                        <RowDefinition Height="0.8*"/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="指示灯" Grid.Row="1" BorderBrush="Black" Grid.ColumnSpan="2" Margin="31,27.6,-0.4,30" Grid.RowSpan="2" >
+                        <Grid ShowGridLines="False" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition Height="0.7*"/>
+                                <RowDefinition Height="0.1*"/>
+                            </Grid.RowDefinitions>
+                            <Image x:Name="led_connect" Source="skin/red_light.png" Grid.Column="0" Grid.Row="1"/>
+                            <Image x:Name="led_status" Source="skin/red_light.png" Grid.Column="1" Grid.Row="1"/>
+                            <Viewbox Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,56.6,0.4" >
+                                <Label FontWeight="Bold" Content="通信状态" />
+                            </Viewbox>
+                            <Viewbox Grid.Column="1" Grid.Row="0" >
+                                <Label FontWeight="Bold" Content="机器人状态" />
+                            </Viewbox>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </Grid>
+
+        </Canvas>
+    </Viewbox>
+</Window>

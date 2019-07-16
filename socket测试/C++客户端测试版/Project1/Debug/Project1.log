@@ -1,0 +1,4 @@
+﻿  main.cpp
+l:\湖南卫视\c++客户端测试版\project1\project1\main.cpp(44): warning C4101: “szMessage”: 未引用的局部变量
+l:\湖南卫视\c++客户端测试版\project1\project1\main.cpp(46): warning C4101: “ret”: 未引用的局部变量
+  Project1.vcxproj -> L:\湖南卫视\C++客户端测试版\Project1\Debug\Project1.exe

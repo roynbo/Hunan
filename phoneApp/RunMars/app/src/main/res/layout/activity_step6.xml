@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/step_background"
+    android:padding="10dp"
+    >
+
+
+
+    <RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp">
+
+        <Button
+            android:id="@+id/btn_backToStep6"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="80dp"
+            android:background="@drawable/btn_back_to_last_step" />
+
+        <Button
+            android:id="@+id/btn_reset6"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/btn_stoppp" />
+</RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/layout_1"
+        android:layout_width="122dp"
+        android:layout_height="130dp"
+        android:layout_marginLeft="130dp">
+
+        <Button
+            android:id="@+id/btn_last_front"
+            android:layout_width="60dp"
+            android:layout_height="32dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="29dp"
+            android:background="@drawable/selector_btn_hand_front" />
+
+        <Button
+            android:id="@+id/btn_last_left"
+            android:layout_width="44dp"
+            android:layout_height="33dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/selector_btn_hand_left" />
+
+        <Button
+            android:id="@+id/btn_last_right"
+            android:layout_width="44dp"
+            android:layout_height="33dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/selector_btn_hand_right" />
+
+        <Button
+            android:id="@+id/btn_last_back"
+            android:layout_width="83dp"
+            android:layout_height="54dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/selector_btn_hand_back" />
+
+        <Button
+            android:id="@+id/btn_last_up"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/btn_last_front"
+            android:background="@drawable/selector_btn_hand_up" />
+
+        <Button
+            android:id="@+id/btn_last_down"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/btn_last_front"
+            android:background="@drawable/selector_btn_hand_down" />
+
+    </RelativeLayout>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+
+    <Button
+        android:id="@+id/btn_readyforcatch"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/btn_put_down" />
+
+    <Button
+        android:id="@+id/btn_catch"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/btn_hand_close_down" />
+
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="150dp"
+        android:background="@drawable/btn_hand_open_down" />
+</RelativeLayout>
+
+</LinearLayout>

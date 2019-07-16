@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+  <POU Name="MiddleArm" Id="{a57270b3-65ea-40b2-b52a-2935d30010f0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK MiddleArm
+VAR_INPUT
+	AxisInput:Command;//定义一个驱动轮PLC轴的输入结构体变量
+END_VAR
+VAR_OUTPUT
+	AxisOutput:Status;//定义一个驱动轮PLC轴的输出结构体变量
+END_VAR
+VAR
+	axis:axis_ref;		//定义一个轴
+	power:mc_power;		//使能功能块
+	moveAbsolute:mc_moveabsolute;//绝对运动功能块
+	moveRelative:mc_moverelative;//相对运动功能块
+	moveVelocity:mc_movevelocity;//匀速运动功能块
+	reset:mc_reset;				//复位功能块
+	halt:mc_halt;				//暂停功能块
+	Home:mc_home;				//寻参功能块
+	SetZero:mc_Setposition;		//强制设置位置功能块
+	Dir: MC_Direction;			//匀速运动方向变量，1/3
+	Signal:BOOL;				//寻参触发点
+	Halt_do: BOOL;
+	mode: MC_HomingMode;
+	temp:LREAL;
+	flag: INT:=0;
+	moveRelative_do: BOOL;
+	temp_position: LREAL;
+	temp_velocity: LREAL;
+	start_position:LREAL;
+	start_flag:BOOL:=TRUE;
+	coefficient:INT:=1;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF Axis.NcToPlc.ActPos-16.3>180 THEN
+	temp:=360;
+ELSIF Axis.NcToPlc.ActPos-16.3<-180	THEN
+	temp:=-360;
+ELSE
+	temp:=0;		
+END_IF
+AxisOutput.Position:=Axis.NcToPlc.ActPos-16.3-temp;
+IF start_flag THEN
+	start_position:=AxisOutput.Position;
+	start_flag:=FALSE;
+END_IF
+IF AxisOutput.Enable=FALSE THEN
+	start_flag:=TRUE;
+END_IF
+GVL.middlearm_position:=start_position;
+GVL.middlearm_position:=GVL.bigarm_position+GVL.middlearm_position;
+IF GVL.middlearm_position-1>0 THEN 
+	coefficient:=-1;
+ELSE 
+	coefficient:=1;
+END_IF
+AxisOutput.Velocity:=Axis.NcToPlc.ActVelo;
+power(
+	Axis:=axis, 
+	Enable:=AxisInput.Enable, 
+	Enable_Positive:=TRUE, 
+	Enable_Negative:=TRUE, 
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=>AxisOutput.Enable, 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+IF 	AxisOutput.Enable AND flag=0 THEN
+	moveRelative_do:=TRUE;
+	temp_position:=0.3*coefficient;
+	temp_velocity:=1;
+	flag:=1;
+END_IF
+IF flag=1 AND (AxisOutput.Position-start_position)*coefficient>0.2 THEN
+	moveRelative_do:=AxisInput.Move_Relative;
+	temp_position:=AxisInput.Position;
+	temp_velocity:=AxisInput.Velocity;
+	flag:=2;
+END_IF
+IF AxisOutput.Enable=FALSE AND flag=2 THEN
+	flag:=0;
+END_IF	
+moveAbsolute(
+	Axis:=axis, 
+	Execute:=AxisInput.Move_Absolute, 
+	Position:=AxisInput.Position+16.3+temp, 
+	Velocity:=AxisInput.Velocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+
+moveRelative(
+	Axis:=axis, 
+	Execute:=moveRelative_do, 
+	Distance:=temp_position, 
+	Velocity:=temp_velocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+
+	IF(AxisInput.Velocity>=0)THEN
+		Dir:=1;
+	ELSIF(AxisInput.Velocity<0)THEN
+		Dir:=3;
+		AxisInput.Velocity:=-AxisInput.Velocity;
+	END_IF
+moveVelocity(
+	Axis:= axis, 
+	Execute:= AxisInput.Move_Velocity, 
+	Velocity:= AxisInput.Velocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	Direction:= Dir, 
+	BufferMode:= , 
+	Options:= , 
+	InVelocity=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	
+reset(
+	Axis:= axis, 
+	Execute:= AxisInput.Reset, 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+halt(
+	Axis:= axis, 
+	Execute:=AxisInput.Halt, 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	IF(AxisInput.HomeSignal=524296)THEN
+		Signal:=TRUE;
+	ELSE 
+		Signal:=FALSE;		
+	END_IF	
+Home(
+	Axis:= axis, 
+	Execute:= AxisInput.Home, 
+	Position:= 0, 
+	HomingMode:= , 
+	BufferMode:= , 
+	Options:= , 
+	bCalibrationCam:= Signal, 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	
+SetZero(
+	Axis:=axis , 
+	Execute:=AxisInput.SetZero , 
+	Position:= 0, 
+	Mode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+]]></ST>
+    </Implementation>
+    <LineIds Name="MiddleArm">
+      <LineId Id="179" Count="5" />
+      <LineId Id="178" Count="0" />
+      <LineId Id="186" Count="0" />
+      <LineId Id="236" Count="1" />
+      <LineId Id="239" Count="0" />
+      <LineId Id="238" Count="0" />
+      <LineId Id="240" Count="2" />
+      <LineId Id="245" Count="1" />
+      <LineId Id="248" Count="3" />
+      <LineId Id="247" Count="0" />
+      <LineId Id="185" Count="0" />
+      <LineId Id="10" Count="12" />
+      <LineId Id="187" Count="6" />
+      <LineId Id="252" Count="1" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="195" Count="3" />
+      <LineId Id="23" Count="64" />
+      <LineId Id="89" Count="42" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

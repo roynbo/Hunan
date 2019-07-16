@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TcModuleClass xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2009/05/TcModuleClass">
+  <Vendor>
+    <Name>C++ Module Vendor</Name>
+  </Vendor>
+  <DataTypes ><DataType><Name GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</Name><SubItem><Name>Enable</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>MoveAbsolute</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>MoveRelative</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>MoveVelocity</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>Reset</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>Halt</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>Home</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>SetZero</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>Velocity</Name><Type GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</Type></SubItem><SubItem><Name>Position</Name><Type GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</Type></SubItem></DataType><DataType><Name GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</Name><SubItem><Name>Enable</Name><Type GUID="{18071995-0000-0000-0000-000000000030}">BOOL</Type></SubItem><SubItem><Name>Velocity</Name><Type GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</Type></SubItem><SubItem><Name>Position</Name><Type GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</Type></SubItem><SubItem><Name>Current</Name><Type GUID="{18071995-0000-0000-0000-000000000006}">INT</Type></SubItem><Hides><Hide GUID="{dd39221e-4033-4065-80fb-ac9b9d7f485d}" /></Hides></DataType><DataType><Name GUID="{8cb97237-2f86-4618-9602-9b93c30e5a72}">GripperInput</Name><SubItem><Name>Enable</Name><Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type></SubItem><SubItem><Name>SetSpped</Name><Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type></SubItem></DataType><DataType><Name GUID="{8a525ebb-1365-46fe-b19f-ce8b9bbd504a}">GripperOutput</Name><SubItem><Name>Position</Name><Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type></SubItem><SubItem><Name>IO</Name><Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type></SubItem></DataType></DataTypes>
+  <Groups>
+    <Group SortOrder="701">
+      <Name>C++</Name>
+      <DisplayName>C++ Modules</DisplayName>
+    </Group>
+  </Groups>
+  <Modules>
+    <Module GUID="{4967ee39-496d-46d8-981a-cbf89a682a58}" Group="C++">
+      <Name>LibInterface</Name>
+      <CLSID ClassFactory="LibInterface">{4967ee39-496d-46d8-981a-cbf89a682a58}</CLSID>
+      <Licenses>
+        <License>
+          <LicenseId>{304D006A-8299-4560-AB79-438534B50288}</LicenseId>
+          <Comment>TC3 C++</Comment>
+        </License>
+      </Licenses>
+      <InitSequence>SO</InitSequence>
+      <Contexts>
+        <Context>
+          <Id>1</Id>
+        </Context>
+      </Contexts>
+      <Interfaces>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{00000012-0000-0000-E000-000000000064}">ITComObject</Type>
+        </Interface>
+        <Interface>
+          <Type GUID="{03000010-0000-0000-E000-000000000064}">ITcCyclic</Type>
+        </Interface>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{03000012-0000-0000-E000-000000000064}">ITcADI</Type>
+        </Interface>
+        <Interface DisableCodeGeneration="true">
+          <Type GUID="{03000018-0000-0000-E000-000000000064}">ITcWatchSource</Type>
+        </Interface>
+      </Interfaces>
+      <Parameters>
+        <Parameter HideParameter="true">
+          <Name>TraceLevelMax</Name>
+          <Comment>Controls the amount of log messages.</Comment>
+          <BaseType GUID="{8007ae3b-86bb-40f2-b385-ef87fcc239a4}">TcTraceLevel</BaseType>
+          <PTCID>#x03002103</PTCID>
+          <ContextId>1</ContextId>
+        </Parameter>
+        <Parameter>
+          <Name>DefaultAdsPort</Name>
+          <Comment>ADS port number to be used by the module instance. With value 0xFFFF a port number will be created. Allowed range is 2000-9999.</Comment>
+          <BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+          <Default>
+            <Value>-1</Value>
+          </Default>
+          <PTCID>#x00000001</PTCID>
+          <ContextId>1</ContextId>
+        </Parameter>
+        <Parameter>
+          <Name>ContextAdsPort</Name>
+          <Comment>ADS port number of the task associated with context 1</Comment>
+          <BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+          <PTCID>#x03002090</PTCID>
+          <ContextId>1</ContextId>
+        </Parameter>
+        <Parameter CreateSymbol="true" OnlineParameter="true" DisableCodeGeneration="true">
+          <Name>AdsPort</Name>
+          <Comment>ADS port number actually used by the module instance.</Comment>
+          <BaseType GUID="{18071995-0000-0000-0000-000000000004}">WORD</BaseType>
+          <PTCID>#x00000002</PTCID>
+          <ContextId>1</ContextId>
+        </Parameter>
+        <Parameter CreateSymbol="true" OnlineParameter="true">
+          <Name>Counter</Name>
+          <Comment>Incremented continuously if module instance is in started mode.</Comment>
+          <BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+          <PTCID>#x00000003</PTCID>
+          <ContextId>1</ContextId>
+        </Parameter>
+      </Parameters>
+      <DataAreas>
+        <DataArea>
+          <AreaNo AreaType="InputDst" CreateSymbols="true">0</AreaNo>
+          <Name>Inputs</Name>
+          <ContextId>1</ContextId>
+          <Symbol>
+            <Name>Value</Name>
+            <BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+          </Symbol>
+          <Symbol>
+            <Name>Status</Name>
+            <BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+          </Symbol>
+          <Symbol>
+            <Name>Data</Name>
+            <BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+          </Symbol><Symbol><Name>DrivingWheel1Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>DrivingWheel2Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>DrivingWheel3Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>DrivingWheel4Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>SwingArm1Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>SwingArm2Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>SwingArm3Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>SwingArm4Output</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>WaistOutput</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>BigArmOutput</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>FlexOutput</Name><DisplayName TxtId="" /><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>MiddleArmOutput</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>SmallArmOutput</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>RotationOutput</Name><BaseType GUID="{5c1bb340-871e-416c-81a0-b5a33450c57b}">AxisStatusLib</BaseType></Symbol><Symbol><Name>ClampOutput</Name><BaseType GUID="{8a525ebb-1365-46fe-b19f-ce8b9bbd504a}">GripperOutput</BaseType></Symbol><Symbol><Name>jinting</Name><BaseType GUID="{18071995-0000-0000-0000-000000000009}">DINT</BaseType></Symbol>
+        </DataArea>
+        <DataArea>
+          <AreaNo AreaType="OutputSrc" CreateSymbols="true">1</AreaNo>
+          <Name>Outputs</Name>
+          <ContextId>1</ContextId>
+          <Symbol>
+            <Name>Value</Name>
+            <BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+          </Symbol>
+          <Symbol>
+            <Name>Control</Name>
+            <BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+          </Symbol>
+          <Symbol>
+            <Name>Data</Name>
+            <BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+          </Symbol><Symbol><Name>DrivingWheel1Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>DrivingWheel2Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>DrivingWheel3Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>DrivingWheel4Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>SwingArm1Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>SwingArm2Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>SwingArm3Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>SwingArm4Input</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>WaistInput</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>BigArmInput</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>FlexInput</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>MiddleArmInput</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>SmallArmInput</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>RotationInput</Name><BaseType GUID="{1687c4d7-9c55-4ba6-bcf9-27ee69bec61a}">AxisCmdLib</BaseType></Symbol><Symbol><Name>ClampInput</Name><BaseType GUID="{8cb97237-2f86-4618-9602-9b93c30e5a72}">GripperInput</BaseType></Symbol><Symbol><Name>lighting</Name><BaseType GUID="{18071995-0000-0000-0000-000000000009}">DINT</BaseType></Symbol>
+        </DataArea>
+      </DataAreas>
+      <InterfacePointers>
+        <InterfacePointer>
+          <PTCID>#x03002060</PTCID>
+          <Name>CyclicCaller</Name>
+          <Type GUID="{0300001e-0000-0000-e000-000000000064}">ITcCyclicCaller</Type>
+        </InterfacePointer>
+      </InterfacePointers>
+      <DataPointers />
+      <Deployment>
+        <FileEntry TargetPlatform="TwinCAT RT (x86)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x86)\%CLASSFACTORYNAME%.sys</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.sys</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x86)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x86)\%CLASSFACTORYNAME%.pdb</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.pdb</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x64)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x64)\%CLASSFACTORYNAME%.sys</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.sys</DestinationFile>
+        </FileEntry>
+        <FileEntry TargetPlatform="TwinCAT RT (x64)">
+          <SourceFile>%SOLUTIONDEPLOYMENTPATH%TwinCAT RT (x64)\%CLASSFACTORYNAME%.pdb</SourceFile>
+          <DestinationFile>%TC_DRIVERAUTOINSTALLPATH%%CLASSFACTORYNAME%.pdb</DestinationFile>
+        </FileEntry>
+      </Deployment>
+    </Module>
+  </Modules>
+</TcModuleClass>

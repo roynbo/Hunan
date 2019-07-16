@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+  <DUT Name="Command" Id="{1d1b5036-0ebf-4301-96a2-0c7e3581119d}">
+    <Declaration><![CDATA[TYPE Command :
+STRUCT
+	Enable:BOOL;					//使能触发位
+	Move_Absolute:BOOL;				//绝对运动触发位
+	Move_Relative:BOOL;				//相对运动触发位
+	Move_Velocity:BOOL;				//匀速运动触发位
+	Reset:BOOL;						//复位触发位
+	Halt:BOOL;						//暂停触发位
+	Home:BOOL;						//暂停触发位
+	SetZero:BOOL;					//设置位置触发位
+	Velocity:LREAL;					//速度变量
+	Position:LREAL;					//位置变量
+	HomeSignal:DINT;				//寻参触发点
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

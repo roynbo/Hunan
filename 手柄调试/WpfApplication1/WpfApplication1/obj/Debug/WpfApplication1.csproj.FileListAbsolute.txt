@@ -1,0 +1,13 @@
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe.config
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.exe
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\bin\Debug\WpfApplication1.pdb
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csprojResolveAssemblyReference.cache
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.baml
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\MainWindow.g.cs
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\App.g.cs
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1_MarkupCompile.cache
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.g.resources
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.Properties.Resources.resources
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.csproj.GenerateResource.Cache
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.exe
+G:\湖南卫视\手柄调试\WpfApplication1\WpfApplication1\obj\Debug\WpfApplication1.pdb

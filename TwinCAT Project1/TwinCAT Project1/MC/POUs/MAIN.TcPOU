@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+  <POU Name="MAIN" Id="{a2a599a6-348a-442f-829d-6cea29b1f46d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbDrivingWheel1:DrivingWheel1;				//调用控制驱动轮1功能块
+	fbDrivingWheel2:DrivingWheel2;				//调用控制驱动轮2功能块
+	fbDrivingWheel3:DrivingWheel3;				//调用控制驱动轮3功能块
+	fbDrivingWheel4:DrivingWheel4;				//调用控制驱动轮4功能块
+	fbSwingArm1:SwingArm1;						//调用控制摆臂1功能块
+	fbSwingArm2:SwingArm2;						//调用控制摆臂2功能块
+	fbSwingArm3:SwingArm3;						//调用控制摆臂3功能块
+	fbSwingArm4:SwingArm4;						//调用控制摆臂4功能块
+	fbWaist:Waist;								//调用控制腰功能块
+	fbBigArm:BigArm;							//调用控制大臂功能块
+	fbFlex:Flex;								//调用控制伸缩功能块
+	fbMiddleArm:MiddleArm;						//调用控制中臂功能块
+	fbSmallArm:SmallArm;						//调用控制小臂功能块
+	fbRotation:Rotation;						//调用控制旋转功能块
+	fbClamp:Clamp;								//调用控制夹紧功能块
+//***************************************************************//
+	DrivingWheel1Input AT%I*:Command;//驱动轮1PLC轴输入变量
+	DrivingWheel2Input AT%I*:Command;//驱动轮2PLC轴输入变量
+	DrivingWheel3Input AT%I*:Command;//驱动轮3PLC轴输入变量
+	DrivingWheel4Input AT%I*:Command;//驱动轮4PLC轴输入变量
+	SwingArm1Input AT%I*:Command;	 //摆臂1PLC轴输入变量
+	SwingArm2Input AT%I*:Command;	 //摆臂2PLC轴输入变量
+	SwingArm3Input AT%I*:Command;	 //摆臂3PLC轴输入变量
+	SwingArm4Input AT%I*:Command;	 //摆臂4PLC轴输入变量
+	WaistInput AT%I*:Command;	 	 //腰PLC轴输入变量
+	BigArmInput AT%I*:Command;		 //大臂PLC轴输入变量
+	FlexInput AT%I*:Command;		 //伸缩PLC轴输入变量
+	MiddleArmInput AT%I*:Command;	 //中臂PLC轴输入变量
+	SmallArmInput AT%I*:Command;	 //小臂PLC轴输入变量
+	RotationInput AT%I*:Command;	 //旋转PLC轴输入变量
+	ClampInput AT%I*:Command;		 //夹紧PLC轴输入变量
+//***************************************************************//
+	DrivingWheel1Output AT%Q*:Status;//驱动轮1PLC轴输出变量
+	DrivingWheel2Output AT%Q*:Status;//驱动轮2PLC轴输出变量
+	DrivingWheel3Output AT%Q*:Status;//驱动轮3LC轴输出变量
+	DrivingWheel4Output AT%Q*:Status;//驱动轮4PLC轴输出变量
+	SwingArm1Output AT%Q*:Status;//摆臂1PLC轴输出变量
+	SwingArm2Output AT%Q*:Status;//摆臂2PLC轴输出变量
+	SwingArm3Output AT%Q*:Status;//摆臂3PLC轴输出变量
+	SwingArm4Output AT%Q*:Status;//摆臂4PLC轴输出变量
+	WaistOutput AT%Q*:Status; //腰PLC轴输出变量
+	BigArmOutput AT%Q*:Status;//大臂PLC轴输出变量
+	FlexOutput AT%Q*:Status; //伸缩PLC轴输出变量
+	MiddleArmOutput AT%Q*:Status;//中臂PLC轴输出变量
+	SmallArmOutput AT%Q*:Status;//小臂PLC轴输出变量
+	RotationOutput AT%Q*:Status;//旋转PLC轴输出变量
+	ClampOutput AT%Q*:Status;//夹紧PLC轴输出变量
+	///////////////////////////////////////////////////////
+	GripperEnable AT%I*:DINT;
+	GripperSetSpeed AT%I*:DINT;
+	GripperReadPos AT%Q*:DINT;
+	GripperIOStatus AT%Q*:DINT;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+fbDrivingWheel1( AxisInput:=DrivingWheel1Input , AxisOutput=>DrivingWheel1Output );
+fbDrivingWheel2( AxisInput:=DrivingWheel2Input , AxisOutput=>DrivingWheel2Output );
+fbDrivingWheel3( AxisInput:=DrivingWheel3Input , AxisOutput=>DrivingWheel3Output );
+fbDrivingWheel4( AxisInput:=DrivingWheel4Input , AxisOutput=>DrivingWheel4Output );
+
+fbSwingArm1( AxisInput:=SwingArm1Input , AxisOutput=>SwingArm1Output );
+fbSwingArm2( AxisInput:=SwingArm2Input , AxisOutput=>SwingArm2Output );
+fbSwingArm3( AxisInput:=SwingArm3Input , AxisOutput=>SwingArm3Output );
+fbSwingArm4( AxisInput:=SwingArm4Input , AxisOutput=>SwingArm4Output );
+
+fbWaist( AxisInput:=WaistInput , AxisOutput=>WaistOutput );
+fbBigArm( AxisInput:=BigArmInput , AxisOutput=>BigArmOutput );
+fbFlex(AxisInput:=FlexInput, AxisOutput=>FlexOutput);
+fbMiddleArm( AxisInput:=MiddleArmInput , AxisOutput=>MiddleArmOutput );
+fbSmallArm( AxisInput:=SmallArmInput , AxisOutput=>SmallArmOutput );
+fbRotation( AxisInput:=RotationInput , AxisOutput=>RotationOutput );
+fbClamp( AxisInput:=ClampInput , AxisOutput=>ClampOutput );
+
+//////////////////////////////////////////////////////////////////////
+//Enable
+//when receive enable signal,then gripper driver would be enabled in 3 circles
+IF(GripperEnable=1 AND NOT(GVL.Acontrolword[1] =15))THEN
+	IF(NOT(GVL.Acontrolword[1] =6) AND NOT(GVL.Acontrolword[1] =7))THEN
+			GVL.Acontrolword[1] :=6;		
+	ELSIF(GVL.Acontrolword[1] =6)THEN
+			GVL.Acontrolword[1] :=7;	
+	ELSE
+			GVL.Acontrolword[1] :=15;	
+			//set driver mode
+			GVL.SetUnitmode[1]:=3;
+	END_IF
+END_IF
+
+//disable
+//when receive disnable signal,then gripper driver would be disnabled immediately
+IF(GripperEnable=0)THEN
+	GVL.Acontrolword[1] :=0;	
+END_IF
+
+
+//set gripper speed,positive speed represent open ,negative speed represent close
+IF(GripperEnable=1)THEN
+	IF(GripperSetSpeed>100)THEN
+		GVL.SetActualVelocity[1]:=100*1000;
+	ELSIF(GripperSetSpeed<-100)THEN
+		GVL.SetActualVelocity[1]:=-100*1000;
+	END_IF
+	GVL.SetActualVelocity[1]:=GripperSetSpeed*1000;
+END_IF
+GripperReadPos:=GVL.readActualpostion[1];
+//18bit is the postion-constraint switch
+GripperIOStatus:=GVL.readIOStatus[1];]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="89" Count="12" />
+      <LineId Id="106" Count="0" />
+      <LineId Id="102" Count="3" />
+      <LineId Id="163" Count="0" />
+      <LineId Id="162" Count="0" />
+      <LineId Id="165" Count="21" />
+      <LineId Id="198" Count="6" />
+      <LineId Id="195" Count="2" />
+      <LineId Id="164" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

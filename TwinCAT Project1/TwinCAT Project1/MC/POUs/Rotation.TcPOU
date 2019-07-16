@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+  <POU Name="Rotation" Id="{c7f68510-177b-47a7-9a9a-6140029195f0}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Rotation
+VAR_INPUT
+	AxisInput:Command;//定义一个驱动轮PLC轴的输入结构体变量
+END_VAR
+VAR_OUTPUT
+	AxisOutput:Status;//定义一个驱动轮PLC轴的输出结构体变量
+END_VAR
+VAR
+	axis:axis_ref;		//定义一个轴
+	power:mc_power;		//使能功能块
+	moveAbsolute:mc_moveabsolute;//绝对运动功能块
+	moveRelative:mc_moverelative;//相对运动功能块
+	moveVelocity:mc_movevelocity;//匀速运动功能块
+	reset:mc_reset;				//复位功能块
+	halt:mc_halt;				//暂停功能块
+	Home:mc_home;				//寻参功能块
+	SetZero:mc_Setposition;		//强制设置位置功能块
+	Dir: MC_Direction;			//匀速运动方向变量，1/3
+	Signal:BOOL;				//寻参触发点
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[power(
+	Axis:=axis, 
+	Enable:=AxisInput.Enable, 
+	Enable_Positive:=TRUE, 
+	Enable_Negative:=TRUE, 
+	Override:= , 
+	BufferMode:= , 
+	Options:= , 
+	Status=>AxisOutput.Enable, 
+	Busy=> , 
+	Active=> , 
+	Error=> , 
+	ErrorID=> );
+	
+moveAbsolute(
+	Axis:=axis, 
+	Execute:=AxisInput.Move_Absolute, 
+	Position:=AxisInput.Position+135.5, 
+	Velocity:=AxisInput.Velocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+
+moveRelative(
+	Axis:=axis, 
+	Execute:=AxisInput.Move_Relative, 
+	Distance:=AxisInput.Position, 
+	Velocity:=AxisInput.Velocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+
+	IF(AxisInput.Velocity>=0)THEN
+		Dir:=1;
+	ELSIF(AxisInput.Velocity<0)THEN
+		Dir:=3;
+		AxisInput.Velocity:=-AxisInput.Velocity;
+	END_IF
+moveVelocity(
+	Axis:= axis, 
+	Execute:= AxisInput.Move_Velocity, 
+	Velocity:= AxisInput.Velocity, 
+	Acceleration:= , 
+	Deceleration:= , 
+	Jerk:= , 
+	Direction:= Dir, 
+	BufferMode:= , 
+	Options:= , 
+	InVelocity=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	
+reset(
+	Axis:= axis, 
+	Execute:= AxisInput.Reset, 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+	
+halt(
+	Axis:= axis, 
+	Execute:= AxisInput.Halt, 
+	Deceleration:= , 
+	Jerk:= , 
+	BufferMode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	IF(AxisInput.HomeSignal=524288)THEN
+		Signal:=TRUE;
+	ELSE 
+		Signal:=FALSE;		
+	END_IF	
+Home(
+	Axis:= axis, 
+	Execute:= AxisInput.Home, 
+	Position:= 0, 
+	HomingMode:= , 
+	BufferMode:= , 
+	Options:= , 
+	bCalibrationCam:= Signal, 
+	Done=> , 
+	Busy=> , 
+	Active=> , 
+	CommandAborted=> , 
+	Error=> , 
+	ErrorID=> );
+	
+SetZero(
+	Axis:=axis , 
+	Execute:=AxisInput.SetZero , 
+	Position:= 0, 
+	Mode:= , 
+	Options:= , 
+	Done=> , 
+	Busy=> , 
+	Error=> , 
+	ErrorID=> );
+AxisOutput.Position:=Axis.NcToPlc.ActPos-135.5;
+AxisOutput.Velocity:=Axis.NcToPlc.ActVelo;
+]]></ST>
+    </Implementation>
+    <LineIds Name="Rotation">
+      <LineId Id="10" Count="121" />
+      <LineId Id="153" Count="0" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

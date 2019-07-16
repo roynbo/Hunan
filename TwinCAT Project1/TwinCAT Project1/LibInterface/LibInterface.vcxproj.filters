@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3f32ced0-a3ea-49b0-bd02-3ef0f7affd28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{02fb7742-62ee-4f54-807b-e6c237c4a39f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TwinCAT UM Files">
+      <UniqueIdentifier>{431d255f-0e44-44b5-aa99-f7513a2165d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TwinCAT RT Files">
+      <UniqueIdentifier>{41fe8607-92b6-448d-9a9c-826ee508dba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TMC Files">
+      <UniqueIdentifier>{2e376d25-af9f-42a6-9c68-0addd85aeb61}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TcPch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LibInterfaceClassFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LibInterfaceInterfaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LibInterfaceServices.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LibInterfaceCtrl.h">
+      <Filter>TwinCAT UM Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LibInterfaceDriver.h">
+      <Filter>TwinCAT RT Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Axis.h" />
+    <ClInclude Include="LibInterface.h" />
+    <ClInclude Include="LibInterfaceAds.h" />
+    <ClInclude Include="Robot.h" />
+    <ClInclude Include="Vehicle.h" />
+    <ClInclude Include="SwingArm.h" />
+    <ClInclude Include="Mainpulator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="TcPch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LibInterfaceClassFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LibInterfaceCtrl.cpp">
+      <Filter>TwinCAT UM Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LibInterfaceW32.cpp">
+      <Filter>TwinCAT UM Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LibInterfaceDriver.cpp">
+      <Filter>TwinCAT RT Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Axis.cpp" />
+    <ClCompile Include="LibInterface.cpp" />
+    <ClCompile Include="Robot.cpp" />
+    <ClCompile Include="Vehicle.cpp" />
+    <ClCompile Include="SwingArm.cpp" />
+    <ClCompile Include="Mainpulator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LibInterface.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LibInterfaceW32.def">
+      <Filter>TwinCAT UM Files</Filter>
+    </None>
+    <None Include="LibInterface.tmc">
+      <Filter>TMC Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="LibInterfaceW32.idl">
+      <Filter>TwinCAT UM Files</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>
